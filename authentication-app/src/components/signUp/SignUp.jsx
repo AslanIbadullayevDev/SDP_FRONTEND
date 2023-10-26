@@ -19,12 +19,11 @@ export default function SignUp()
 
     function handleChange(e) 
     {
-        const newData = { ...formData };
-        newData[e.target.name] = e.target.value;
-        setFormData(newData);
+        const {name, value} =  e.target ; 
+        setFormData({...formData, [name]: value});
     };
 
-    const handleSubmit = async (e) =>
+    const handleSubmit = (e) =>
     {
         e.preventDefault();
 
@@ -57,7 +56,7 @@ export default function SignUp()
             <input type='email' placeholder='email address' name='emailAddress' value={formData.emailAddress} onChange={(e) => handleChange(e)} required/>
             <input type='text' placeholder='new password' name='newPass' value={formData.newPass} onChange={(e) => handleChange(e)} required/>
             <input type='text' placeholder='confirm the new password' name='newConfPass' value={formData.newConfPass} onChange={(e) => handleChange(e)} required/>
-            <button type='submit'>Create New Account</button>
+            <button type='submit'>Sign Up</button>
         </form>
         </div>
         )
